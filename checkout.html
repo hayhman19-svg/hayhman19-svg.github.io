@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>💰 Crypto Checkout</h1>
+
+  <p><strong>Product:</strong> <span id="product"></span></p>
+  <p><strong>Amount:</strong> <span id="price"></span> USDT</p>
+
+  <hr>
+
+  <h2>Send payment to</h2>
+
+  <p><strong>USDT (TRC20)</strong></p>
+  <code>TXxxxxxxxxxxxxxxxxxxxxxxxx</code>
+
+  <p><strong>BTC</strong></p>
+  <code>bc1xxxxxxxxxxxxxxxxxxxxxxxx</code>
+
+  <hr>
+
+  <h2>Submit your Transaction ID (TXID)</h2>
+
+  <!-- Replace the action URL with your own Formspree or Google Form -->
+  <form action="https://formspree.io/f/XXXXXX" method="POST">
+    
+    <input type="hidden" name="product" id="formProduct">
+    <input type="hidden" name="price" id="formPrice">
+
+    <label>Your Email</label>
+    <input type="email" name="email" required>
+
+    <label>Transaction ID (TXID)</label>
+    <input type="text" name="txid" required>
+
+    <button type="submit" class="btn">Submit Payment</button>
+  </form>
+
+  <p><small>⚠️ Crypto payments are final. No refunds.</small></p>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const product = params.get("product") || "Unknown";
+  const price = params.get("price") || "0";
+
+  document.getElementById("product").textContent = product;
+  document.getElementById("price").textContent = price;
+  document.getElementById("formProduct").value = product;
+  document.getElementById("formPrice").value = price;
+</script>
+
+</body>
+</html>
