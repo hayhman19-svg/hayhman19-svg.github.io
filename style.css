@@ -53,6 +53,18 @@ h2 {
 }
 
 /* ===== BUTTONS ===== */
-.btn,
-button {
-  display: inline-bloc
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #111;
+  color: white;
+  text-decoration: none; /* removes underline */
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #333;
+}
+
